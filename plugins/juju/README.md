@@ -38,6 +38,7 @@ Naming convention:
 
 | Alias    | Command                                                                               | Description                                                       |
 |----------|---------------------------------------------------------------------------------------|-------------------------------------------------------------------|
+| `jctl`   | `juju controllers`                                                                    | List all controllers                                              |
 | `jdc`    | `juju destroy-controller --destroy-all-models`                                        | Destroy a controller                                              |
 | `jdc!`   | `juju destroy-controller --destroy-all-models --force --no-wait -y`                   | Destroy a controller                                              |
 | `jdcds`  | `juju destroy-controller --destroy-all-models --destroy-storage`                      | Destroy a controller and associated storage                       |
