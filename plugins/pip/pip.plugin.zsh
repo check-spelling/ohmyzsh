@@ -9,11 +9,6 @@
 # If you would like to clear your cache, go ahead and do a
 # "zsh-pip-clear-cache".
 
-# Adding pip3 alias if pip is missing
-if (( $+commands[pip3] && !$+commands[pip] )); then
-  alias pip=pip3
-fi
-
 if [[ -d "${XDG_CACHE_HOME:-$HOME/.cache}/pip" ]]; then
   ZSH_PIP_CACHE_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/pip/zsh-cache"
 else
@@ -87,7 +82,11 @@ zsh-pip-test-clean-packages() {
     fi
 }
 
-alias pip="noglob pip" # allows square brackets for pip command invocation
+if (( $+commands[pip3] && !$+commands[pip] )); then
+  alias pip="noglob pip3"
+else
+  alias pip="noglob pip"
+fi
 
 # Create requirements file
 alias pipreq="pip freeze > requirements.txt"
